@@ -27,5 +27,5 @@ SlackワークスペースにCominアプリを追加するだけ。設定は5分
 
 ## リンク
 - Webサイト: https://get-comin.com
-- 問い合わせ: contact@matabi-tech.com
-- 運営: matabi-tech Inc.
+- 問い合わせ: info@matabi-tech.com
+- 運営: Matabi Technologies Co., Ltd.（株式会社マタビテクノロジーズ）
