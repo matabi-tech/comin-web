@@ -1,0 +1,46 @@
+---
+const features = [
+  {
+    title: 'マッチング紹介',
+    description: '会員のプロフィールをもとに、相性の良いペアを選んで理由付きで紹介。「なぜこの人と話すべきか」が分かるから、会話が始めやすい。',
+    icon: '🤝',
+  },
+  {
+    title: '3つのマッチモード',
+    description: 'おまかせ（相性＋ランダムの混合）、マッチ度重視、みくじ（ランダム）の3モード。意外な出会いも大切にできる。',
+    icon: '🎯',
+  },
+  {
+    title: '管理ダッシュボード',
+    description: '会員の活動度、マッチ受諾率、満足度が一目で分かる。静かな会員の把握や、手動マッチも管理画面から。',
+    icon: '📊',
+  },
+  {
+    title: 'フィードバック自動収集',
+    description: 'マッチ後に「実際に会えたか」「満足度」を自動で収集。データに基づいた改善サイクルが回る。',
+    icon: '💬',
+  },
+]
+---
+
+<section id="features" class="py-16 md:py-24">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">
+      主な機能
+    </h2>
+    <p class="text-muted text-center mb-12">
+      運営者の負担を減らしながら、会員同士のつながりを増やす
+    </p>
+    <div class="grid md:grid-cols-2 gap-8">
+      {features.map((f) => (
+        <div class="bg-panel rounded-xl border border-border p-6 flex gap-4">
+          <span class="text-3xl shrink-0">{f.icon}</span>
+          <div>
+            <h3 class="font-semibold text-lg mb-2">{f.title}</h3>
+            <p class="text-muted text-sm">{f.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

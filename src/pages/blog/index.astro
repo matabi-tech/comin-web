@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+)
+---
+
+<Layout title="ブログ | Comin" description="Cominのブログ。コワーキング運営やコミュニティ活性化に関する記事を発信しています。">
+  <div class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="text-3xl font-bold mb-10">ブログ</h1>
+    <div class="space-y-8">
+      {posts.map((post) => (
+        <article class="bg-panel rounded-xl border border-border p-6 hover:shadow-md transition">
+          <a href={`/blog/${post.id}`}>
+            <p class="text-muted text-sm mb-1">
+              {post.data.pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+            <h2 class="text-xl font-semibold mb-2 hover:text-teal transition">{post.data.title}</h2>
+            <p class="text-muted text-sm">{post.data.description}</p>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>

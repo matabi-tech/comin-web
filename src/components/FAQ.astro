@@ -1,0 +1,69 @@
+---
+const faqs = [
+  {
+    q: 'Comin とは何ですか？',
+    a: 'Cominは、コワーキングスペースやコミュニティのSlackに導入するだけで、会員同士を隔週で自動紹介するサービスです。プロフィールをもとに相性の良いペアを選び、理由と話のきっかけ付きでDMを送ります。',
+  },
+  {
+    q: 'どんなコミュニティに向いていますか？',
+    a: 'コワーキングスペース、社内コミュニティ、オンラインサロンなど、Slackを使っていて「もっと会員同士の交流を増やしたい」と考えているコミュニティに最適です。会員数10〜200名程度が最も効果を発揮します。',
+  },
+  {
+    q: '導入にかかる時間は？',
+    a: 'SlackワークスペースにCominアプリを追加するだけで、5分で導入完了です。会員はそれぞれ自分のプロフィールを登録するだけ（所要5分程度）で、あとはCominが自動で紹介を開始します。',
+  },
+  {
+    q: '会員のプライバシーは守られますか？',
+    a: 'はい。プロフィール情報はマッチング目的のみに使用し、第三者には提供しません。また、会員はいつでもワンタップで紹介の一時停止や、特定の相手とのマッチを避ける設定ができます。',
+  },
+  {
+    q: '料金はいくらですか？',
+    a: '現在は無料トライアルを提供しています。料金プランの詳細はお問い合わせください。',
+  },
+  {
+    q: 'マッチングの精度はどのくらいですか？',
+    a: '会員が入力したスキル・興味・求めていることをもとに、共通点や補完関係を分析してペアを選びます。「おまかせ」モードでは意図的にランダム要素も入れ、想定外の良い出会いも生まれるよう設計しています。',
+  },
+  {
+    q: '会員が嫌がった場合はどうなりますか？',
+    a: 'App Homeのボタンから、1週間〜無期限の一時停止がワンタップで設定できます。また、フィードバック時に「今後この方とはマッチしない」を選べば、特定の相手を除外できます。義務感なく使える設計です。',
+  },
+  {
+    q: 'Slack以外のツールにも対応していますか？',
+    a: '現在はSlack専用です。他のツール（Microsoft Teams、Discordなど）への対応は今後検討しています。',
+  },
+]
+---
+
+<section id="faq" class="py-16 md:py-24 bg-teal-light">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">
+      よくある質問
+    </h2>
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="bg-panel rounded-xl border border-border p-5 group">
+          <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">
+            <span>{faq.q}</span>
+            <span class="text-muted group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="text-muted text-sm mt-3">{faq.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+
+  <!-- FAQ 構造化データ -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }))
+  })} />
+</section>

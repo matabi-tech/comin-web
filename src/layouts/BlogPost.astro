@@ -1,0 +1,42 @@
+---
+import Layout from './Layout.astro'
+
+interface Props {
+  title: string
+  description: string
+  pubDate: Date
+  updatedDate?: Date
+}
+
+const { title, description, pubDate, updatedDate } = Astro.props
+---
+
+<Layout title={`${title} | Comin ブログ`} description={description}>
+  <article class="max-w-3xl mx-auto px-6 py-16">
+    <header class="mb-10">
+      <p class="text-muted text-sm mb-2">
+        <time datetime={pubDate.toISOString()}>
+          {pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        {updatedDate && (
+          <span>
+            （更新: <time datetime={updatedDate.toISOString()}>
+              {updatedDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>）
+          </span>
+        )}
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight">{title}</h1>
+    </header>
+    <div class="prose prose-lg max-w-none
+      prose-headings:text-text prose-headings:font-bold
+      prose-p:text-text/80 prose-li:text-text/80
+      prose-a:text-teal hover:prose-a:text-teal-dark
+      prose-strong:text-text">
+      <slot />
+    </div>
+    <footer class="mt-12 pt-8 border-t border-border">
+      <a href="/blog" class="text-teal hover:text-teal-dark font-semibold">← ブログ一覧へ</a>
+    </footer>
+  </article>
+</Layout>

@@ -1,0 +1,44 @@
+---
+const steps = [
+  {
+    number: '1',
+    title: 'SlackにCominを追加',
+    description: 'ワークスペースにCominアプリを追加するだけ。設定は5分で完了します。',
+    color: 'bg-teal',
+  },
+  {
+    number: '2',
+    title: '会員がプロフィール登録',
+    description: '各メンバーがスキル・興味・求めていることを入力。Webフォームで簡単に。',
+    color: 'bg-amber',
+  },
+  {
+    number: '3',
+    title: 'Cominが隔週で自動紹介',
+    description: '相性の良いペアを選び、理由と話のきっかけ付きでDMを送ります。',
+    color: 'bg-teal',
+  },
+]
+---
+
+<section class="py-16 md:py-24 bg-teal-light">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">
+      Cominなら3ステップで解決
+    </h2>
+    <p class="text-muted text-center mb-12">
+      導入もかんたん、運用も自動
+    </p>
+    <div class="grid md:grid-cols-3 gap-8">
+      {steps.map((s) => (
+        <div class="text-center">
+          <div class={`${s.color} text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4`}>
+            {s.number}
+          </div>
+          <h3 class="font-semibold text-lg mb-2">{s.title}</h3>
+          <p class="text-muted text-sm">{s.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
